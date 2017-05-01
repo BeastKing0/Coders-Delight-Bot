@@ -1,5 +1,6 @@
 import discord
 import asyncio
+import json
 import logging
 
 # bot logging, useful for debugging if the windows closes
@@ -11,10 +12,10 @@ logger.addHandler(handler)
 
 client = discord.Client()
 
-# lol a face. Prefix used for all commands
-prefix = '-'
-# Oauth 2.0 token
-token = ''
+# Load configuration
+configfile = open('./config.json')
+config = json.loads(configfile.read())
+configfile.close()
 
 @client.event
 async def on_ready():
@@ -22,14 +23,14 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print('------')
-    await client.change_presence(game=discord.Game(name='Anyones Bot'))
+    await client.change_presence(game=discord.Game(name='Anyone\'s Bot'))
 
 @client.event
 async def on_message(message):
-    if message.content.startswith(prefix + 'bot'):
+    if message.content.startswith(config['prefix'] + 'bot'):
         await client.send_message(message.channel, 'Open Source collective v.0 (patch #1.0.0')
         
-    if message.content.startswith(prefix + 'source'):
+    if message.content.startswith(config['prefix'] + 'source'):
         await client.send_message(message.channel, 'Source Code: https://github.com/BeastKing0/Coders-Delight-Bot')
         
-client.run(token)
+client.run(config['token'])

@@ -14,7 +14,7 @@ client = discord.Client()
 # lol a face. Prefix used for all commands
 prefix = '-'
 # Oauth 2.0 token
-prefix = ''
+token = ''
 
 @client.event
 async def on_ready():

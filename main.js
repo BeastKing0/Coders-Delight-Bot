@@ -11,7 +11,7 @@ var logger = {
     console.log('[' + header.toUpperCase() + '] ' + message);
     fs.appendFile('log', '[' + header.toUpperCase() + '] ' + message + '\n', (err) => {});
   }
-}
+};
 
 var client = new Discord.Client();
 

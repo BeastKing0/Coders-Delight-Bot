@@ -1,5 +1,5 @@
 # Coders-Delight-Bot
-Open Sourced Discord bot.
+Open Sourced Discord.JS bot.
 * Bot uses JavaScript for it's language, any other languages can use the Plugin API.
 
 Rules of uploading content:

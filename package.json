@@ -1,0 +1,27 @@
+{
+  "name": "coders-delight-bot",
+  "version": "1.0.0",
+  "description": "Open Source bot for Discord",
+  "main": "OpenSource.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BeastKing0/Coders-Delight-Bot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "author": "Open Source Collective",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/BeastKing0/Coders-Delight-Bot/issues"
+  },
+  "homepage": "https://github.com/BeastKing0/Coders-Delight-Bot#readme",
+  "dependencies": {
+    "discord.js": "11.1.0"
+  }
+}

@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const fs = require('fs');
 
 // bot logging, useful for debugging if the windows closes
 fs.writeFile('log', '', function (err) {});

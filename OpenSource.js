@@ -13,7 +13,7 @@ var logger = {
 var client = new Discord.Client();
 
 // Load configuration
-var config = require(__dirname + 'config.json');
+var config = require(__dirname + '/config.json');
 
 client.on('ready', () => {
   logger.log('Logged in as');

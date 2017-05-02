@@ -20,6 +20,6 @@ You are welcome to freely edit and reproduce this bot, the Primary bot (Coders D
 * Contributor: Caleb#2831
 
 
-Other credits go to everyone who has created code for the bot!
+Other credits go to everyone who has compiled resources for the bot!
 
 ## Official Discord Server: https://discord.gg/EM96Ue2

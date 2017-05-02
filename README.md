@@ -1,6 +1,6 @@
 # Coders-Delight-Bot
-Open Sourced Discord.py bot.
-* Bot uses Python for it's language, any other languages will not be excepted.
+Open Sourced Discord.JS bot.
+* Bot uses JavaScript for it's language, any other languages can use the Plugin API.
 
 Rules of uploading content:
 - Developers constantly filter through code so keep it friendly!
@@ -20,6 +20,6 @@ You are welcome to freely edit and reproduce this bot, the Primary bot (Coders D
 * Contributor: Caleb#2831
 
 
-Other credits go to everyone who has compiled code for the bot!
+Other credits go to everyone who has created code for the bot!
 
 ## Official Discord Server: https://discord.gg/EM96Ue2

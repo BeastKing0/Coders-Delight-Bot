@@ -51,12 +51,14 @@ app.use(bodyParser.json());
 app.use(json());
 
 app.post('/send', function (req, res) {
+  logger.log('Sending ' + req.body.message, 'api');
   client.channels.get(req.body.channelid).send(req.body.message);
   res.end('Sent');
 });
 
 app.get('/check', function (req, res) {
   res.end(JSON.stringify(newMessages));
+  newMessages = [];
 });
 
 app.listen(3000, function() {

@@ -6,12 +6,13 @@ const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
 const json = require('express-json');
+const spawn = require("child_process").spawn;
 var app = express();
 
 // bot logging, useful for debugging if the windows closes
 fs.writeFile('log', '', function (err) {});
 var logger = {
-  log: function (message, header='log') {
+  log: function (message, header='log    ') {
     console.log('[' + header.toUpperCase() + '] ' + message);
     fs.appendFile('log', '[' + header.toUpperCase() + '] ' + message + '\n', (err) => {});
   }
@@ -34,7 +35,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    logger.log(message.guild.name + ' #' + message.channel.name + ' ' + message.author.username + ': ' + message.content, 'msg');
+    logger.log(message.guild.name + ' #' + message.channel.name + ' ' + message.author.username + ': ' + message.content, 'message');
     newMessages.push({content: message.content, author: message.author.id, channel: message.channel.id});
     if (message.content.startsWith(config.prefix + 'bot')) message.channel.send('Open Source collective v.0 (patch #1.0.0)');
     if (message.content.startsWith(config.prefix + 'source')) message.channel.send('Source Code: https://github.com/BeastKing0/Coders-Delight-Bot');
@@ -52,7 +53,7 @@ app.use(bodyParser.json());
 app.use(json());
 
 app.post('/send', function (req, res) {
-  logger.log('Sending ' + req.body.message, 'api');
+  logger.log('Sending ' + req.body.message, 'api    ');
   client.channels.get(req.body.channelid).send(req.body.message);
   res.end('Sent');
 });
@@ -63,5 +64,10 @@ app.get('/check', function (req, res) {
 });
 
 app.listen(3000, function() {
-  logger.log('Express started', 'api');
+  logger.log('Express started', 'api    ');
+  var pythonPlugin = spawn('python3', [__dirname + '/main.py']);
+  pythonPlugin.unref();
+  pythonPlugin.stderr.on('data', (data) => {
+    logger.log(data, 'python ');
+  });
 });

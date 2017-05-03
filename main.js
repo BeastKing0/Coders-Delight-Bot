@@ -34,6 +34,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
+    logger.log(message.guild.name + ' #' + message.channel.name + ' ' + message.author.username + ': ' + message.content, 'msg');
     newMessages.push({content: message.content, author: message.author.id, channel: message.channel.id});
     if (message.content.startsWith(config.prefix + 'bot')) message.channel.send('Open Source collective v.0 (patch #1.0.0)');
     if (message.content.startsWith(config.prefix + 'source')) message.channel.send('Source Code: https://github.com/BeastKing0/Coders-Delight-Bot');

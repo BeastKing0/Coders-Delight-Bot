@@ -25,10 +25,7 @@ var config = require(__dirname + '/config.json');
 var newMessages = [];
 
 client.on('ready', () => {
-  logger.log('Logged in as');
-  logger.log(client.user.username);
-  logger.log(client.user.id);
-  logger.log('------');
+  logger.log('Logged in as ' + client.user.username + ' - ' + client.user.id);
   client.user.setPresence({
     game: {
       name: config.prefix + 'source'
@@ -42,6 +39,10 @@ client.on('message', message => {
     if (message.content.startsWith(config.prefix + 'source')) message.channel.send('Source Code: https://github.com/BeastKing0/Coders-Delight-Bot');
   }
 );
+
+client.on('reconnecting', () => {
+  logger.log('Reconnecting to Discrd websocket');
+});
 
 client.login(config.token);
 
@@ -59,5 +60,5 @@ app.get('/check', function (req, res) {
 });
 
 app.listen(3000, function() {
-  logger.log('Express started');
+  logger.log('Express started', 'api');
 });
